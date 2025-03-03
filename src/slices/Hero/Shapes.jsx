@@ -37,12 +37,12 @@ function Geometries() {
     {
       position: [0, 0, 0],
       r: 0.3,
-      geometry: new THREE.IcosahedronGeometry(3), // gem
+      geometry: new THREE.TorusKnotGeometry(2,0.8,48,5,2, 3), // knot
     },
     {
       position: [1, -0.75, 4],
       r: 0.4,
-      geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16), // pill
+      geometry: new THREE.IcosahedronGeometry(1), // gem
     },
     {
       position: [-1.4, 2, -4],
@@ -52,7 +52,7 @@ function Geometries() {
     {
       position: [-0.8, -0.75, 5],
       r: 0.5,
-      geometry: new THREE.TorusGeometry(0.6, 0.25, 16, 32), // donut
+      geometry: new THREE.TetrahedronGeometry(1, 0), // donut
     },
     {
       position: [1.6, 1.6, -4],
@@ -62,19 +62,16 @@ function Geometries() {
   ];
 
   const materials = [
-    new THREE.MeshNormalMaterial(),
-    new THREE.MeshStandardMaterial({ color: 0x17bebb, roughness: 0 }),
-    new THREE.MeshStandardMaterial({ color: 0x4a4238, roughness: 0.1 }),
-    new THREE.MeshStandardMaterial({ color: 0x4d5359, roughness: 0 }),
-    new THREE.MeshStandardMaterial({ color: 0x97db4f, roughness: 0 }),
-    new THREE.MeshStandardMaterial({ color: 0xe0c1b3, roughness: 0.7 }),
+    new THREE.MeshStandardMaterial({ color: 0x08ff25, roughness: 0 }),
+    new THREE.MeshStandardMaterial({ color: 0x08ff98, roughness: 0.1 }),
+    new THREE.MeshStandardMaterial({ color: 0x08ffce, roughness: 0 }),
+    new THREE.MeshStandardMaterial({ color: 0x08ffe6, roughness: 0.4 }),
+    new THREE.MeshStandardMaterial({ color: 0x07ffff, roughness: 0.3, metalness: 0.2, }),
     new THREE.MeshStandardMaterial({
-      color: 0xe0c1b3,
+      color: 0x08e6ff,
       roughness: 0,
       metalness: 0.5,
     }),
-    new THREE.MeshStandardMaterial({ color: 0xe0c1b3, roughness: 0 }),
-    new THREE.MeshStandardMaterial({ color: 0xe0c1b3, roughness: 0 }),
   ];
 
   const soundEffects = [new Audio("/sounds/forcefield_000.ogg")];
