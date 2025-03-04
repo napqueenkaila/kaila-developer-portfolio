@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className={clsx(urbanist.className, "relative min-h-screen")}>
         <Header />
         {children}
-        <div className="background-gradient absolute inset-0 -z-50 max-h-screen" />
+        <div className="bg-radial-[at_50%_25%] from-slate-500 via-slate-900 to-slate-900 absolute inset-0 -z-50 max-h-screen" />
         <div className="pointer-events-none absolute inset-0 -z-40 h-full bg-[url('/noisetexture.jpg')] opacity-20 mix-blend-soft-light" />
         <Footer />
       </body>
