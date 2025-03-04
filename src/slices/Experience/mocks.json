@@ -1,0 +1,62 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "wooden",
+				"type": "Text"
+			},
+			"exp_item": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"time_period",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "sugar",
+									"type": "Text"
+								}
+							],
+							[
+								"workplace",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "doubt",
+									"type": "Text"
+								}
+							],
+							[
+								"job_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "soap",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Cupidatat laborum dolore deserunt ipsum excepteur sit. Ea dolor laborum ea ad voluptate fugiat. Enim et fugiat ea eu ex commodo."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
