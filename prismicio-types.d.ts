@@ -134,7 +134,7 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type ProjectsDocumentDataSlicesSlice = TextBlockSlice;
+type ProjectsDocumentDataSlicesSlice = AlertBlockSlice | TextBlockSlice;
 
 /**
  * Content for Projects documents
@@ -172,6 +172,23 @@ interface ProjectsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   hover_image: prismic.ImageField<never>;
+
+  /**
+   * Project Link field in *Projects*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.project_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 
   /**
    * Slice Zone field in *Projects*
@@ -398,6 +415,51 @@ export type AllDocumentTypes =
   | PageDocument
   | ProjectsDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *AlertBlock → Default → Primary*
+ */
+export interface AlertBlockSliceDefaultPrimary {
+  /**
+   * Text field in *AlertBlock → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alert_block.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for AlertBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AlertBlockSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AlertBlockSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AlertBlock*
+ */
+type AlertBlockSliceVariation = AlertBlockSliceDefault;
+
+/**
+ * AlertBlock Shared Slice
+ *
+ * - **API ID**: `alert_block`
+ * - **Description**: AlertBlock
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AlertBlockSlice = prismic.SharedSlice<
+  "alert_block",
+  AlertBlockSliceVariation
+>;
 
 /**
  * Primary content in *Biography → Default → Primary*
@@ -880,6 +942,10 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavItemItem,
       AllDocumentTypes,
+      AlertBlockSlice,
+      AlertBlockSliceDefaultPrimary,
+      AlertBlockSliceVariation,
+      AlertBlockSliceDefault,
       BiographySlice,
       BiographySliceDefaultPrimary,
       BiographySliceVariation,
